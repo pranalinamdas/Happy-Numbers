@@ -5,19 +5,15 @@ import java.util.List;
 
 public class HappyNumbers {
 
-    private int sum = 0;
-
     private List<Integer> sadNumbers = new ArrayList<>();
 
     public boolean isHappyNumber(int number) {
-
-        sum = 0;
 
         if (isSadNumber(number)) {
             return false;
         }
 
-        sumOfDigitSquares(number);
+        int sum = sumOfDigitSquares(number);
 
         if (sum == 1) {
             return true;
@@ -27,7 +23,8 @@ public class HappyNumbers {
         return isHappyNumber(sum);
     }
 
-    private void sumOfDigitSquares(int number) {
+    private int sumOfDigitSquares(int number) {
+        int sum = 0;
         while ( number > 0 ) {
             int reminder = number % 10;
 
@@ -35,6 +32,7 @@ public class HappyNumbers {
 
             number = number / 10;
         }
+        return sum;
     }
 
     private boolean isSadNumber(int number) {

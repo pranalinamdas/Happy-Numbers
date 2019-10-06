@@ -60,5 +60,4 @@ public class HappyNumbersTest {
 
         assertFalse(eight.isHappyNumber(8));
     }
-
 }
