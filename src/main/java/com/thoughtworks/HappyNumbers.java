@@ -6,7 +6,6 @@ import java.util.List;
 public class HappyNumbers {
 
     private int sum = 0;
-    private int reminder = 0;
 
     private List<Integer> sadNumbers = new ArrayList<>();
 
@@ -15,17 +14,11 @@ public class HappyNumbers {
 
         sum = 0;
 
-        if (sadNumbers.contains(number)) {
+        if (isSadNumber(number)) {
             return false;
         }
 
-        while (number > 0) {
-            reminder = number % 10;
-
-            sum = sum + (reminder * reminder);
-
-            number = number / 10;
-        }
+        sumOfDigitSquares(number);
 
         if (sum == 1) {
             return true;
@@ -33,5 +26,19 @@ public class HappyNumbers {
 
         sadNumbers.add(temp);
         return isHappyNumber(sum);
+    }
+
+    private void sumOfDigitSquares(int number) {
+        while ( number > 0 ) {
+            int reminder = number % 10;
+
+            sum = sum + (reminder * reminder);
+
+            number = number / 10;
+        }
+    }
+
+    private boolean isSadNumber(int number) {
+        return sadNumbers.contains(number);
     }
 }
