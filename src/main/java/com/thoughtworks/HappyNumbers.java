@@ -6,14 +6,17 @@ import java.util.List;
 public class HappyNumbers {
 
     private int sum = 0;
-    int reminder = 0;
+    private int reminder = 0;
 
-    List<Integer> happyNumbers = new ArrayList<>();
+    private List<Integer> sadNumbers = new ArrayList<>();
 
     public boolean isHappyNumber(int number) {
+        int temp = number;
 
-        if (!happyNumbers.contains(number)) {
-            return true;
+        sum = 0;
+
+        if (sadNumbers.contains(number)) {
+            return false;
         }
 
         while (number > 0) {
@@ -22,15 +25,13 @@ public class HappyNumbers {
             sum = sum + (reminder * reminder);
 
             number = number / 10;
-
         }
 
         if (sum == 1) {
-            happyNumbers.add(sum);
             return true;
         }
-        isHappyNumber(sum);
 
-        return number == 1;
+        sadNumbers.add(temp);
+        return isHappyNumber(sum);
     }
 }

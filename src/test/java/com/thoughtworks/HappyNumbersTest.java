@@ -42,9 +42,23 @@ public class HappyNumbersTest {
 
     @Test
     void givenSeven_whenCheckHappyNumber_thenShouldBeHappyNumber(){
-        HappyNumbers happyNumbers = new HappyNumbers();
+        HappyNumbers seven = new HappyNumbers();
 
-        assertTrue(happyNumbers.isHappyNumber(7));
+        assertTrue(seven.isHappyNumber(7));
+    }
+
+    @Test
+    void givenTwentyEight_whenCheckHappyNumber_thenShouldBeHappyNumber(){
+        HappyNumbers twentyEight = new HappyNumbers();
+
+        assertTrue(twentyEight.isHappyNumber(28));
+    }
+
+    @Test
+    void givenEleven_whenCheckHappyNumber_thenShouldBeHappyNumber(){
+        HappyNumbers eight = new HappyNumbers();
+
+        assertFalse(eight.isHappyNumber(8));
     }
 
 }
