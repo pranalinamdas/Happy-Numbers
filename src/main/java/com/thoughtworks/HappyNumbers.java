@@ -10,7 +10,6 @@ public class HappyNumbers {
     private List<Integer> sadNumbers = new ArrayList<>();
 
     public boolean isHappyNumber(int number) {
-        int temp = number;
 
         sum = 0;
 
@@ -24,7 +23,7 @@ public class HappyNumbers {
             return true;
         }
 
-        sadNumbers.add(temp);
+        sadNumbers.add(number);
         return isHappyNumber(sum);
     }
 
